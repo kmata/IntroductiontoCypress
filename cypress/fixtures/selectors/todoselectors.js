@@ -4,6 +4,7 @@ module.exports = {
     clearHiperLink: '.clear-completed',
     label: 'label',
     list:'.todo-list',
-
+    childList: '.todo-list li:nth-child(2) .toggle',
+    listChild: '.todo-list li',
     
 }

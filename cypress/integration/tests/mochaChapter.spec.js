@@ -4,10 +4,13 @@ import selector from '../../fixtures/selectors/todoselectors.js'
 
 describe ('Mocha Test', () => {
 
-
-    it('Shoud add a new todo list', ()=> {
+    beforeEach (() =>{
         cy.visit('/')
         cy.get(selector.inputTxt , {timeout:6000}).type("Test{enter}")
+
+    })
+
+    it('Shoud add a new todo list', ()=> {
         
         cy.get(selector.label).should('have.text', 'Test')
 
@@ -22,8 +25,8 @@ describe ('Mocha Test', () => {
     })
 
     it('Shoud clear todo list ', ()=> {
+        cy.get(selector.bullet).click()
         cy.get(selector.clearHiperLink).click()
-
         cy.get(selector.list).should('not.have.descendants','li')
 
     })
